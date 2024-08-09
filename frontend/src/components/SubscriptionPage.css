@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+  .subscription-page {
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(135deg, rgb(8, 45, 46) 0%, rgb(23, 25, 26) 80%);
+    color: white;
+}
+
+.subscription-page h1 {
+    color: #333;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.subscription-page p {
+    color: #27ae60;
+    font-size: 19px;
+    margin-bottom: 30px;
+    /* color: white; */
+  }
+  
+  .plans-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  
+  .plan-card {
+    background-color: rgb(136, 254, 236);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin: 15px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s;
+    /* min-height: 300px; */
+  }
+  
+  .plan-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .plan-card h2 {
+    color: #ff4b5c;
+    margin-bottom: 15px;
+  }
+  
+  .plan-price {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  .plan-features {
+    list-style: none;
+    padding: 0;
+    color: #555;
+    text-align: left;
+    height: 180px;
+  }
+  
+  .plan-features li {
+    margin: 8px 0;
+  }
+  
+  .subscribe-button {
+    color: #fff;
+    background-color: #ff4b5c;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    font-family: 'Overpass';
+  }
+  
+  .subscribe-button:hover {
+    background-color: #e84351;
+  }
+  

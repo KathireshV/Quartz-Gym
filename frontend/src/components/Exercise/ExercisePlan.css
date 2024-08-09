@@ -1,0 +1,52 @@
+.exercise-plan-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px;
+  }
+  
+  .exercise-plan-day {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 20px;
+    width: 250px;
+    transition: transform 0.3s ease;
+  }
+  
+  .exercise-plan-day:hover {
+    transform: translateY(-5px);
+  }
+  
+  .exercise-plan-day-title {
+    color: #4a90e2;
+    margin-bottom: 10px;
+    font-size: 1.5em;
+  }
+  
+  .exercise-plan-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .exercise-plan-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 5px 0;
+    padding: 10px;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .exercise-plan-exercise-name {
+    font-weight: bold;
+  }
+  
+  .exercise-plan-exercise-duration {
+    color: #666;
+  }
+  

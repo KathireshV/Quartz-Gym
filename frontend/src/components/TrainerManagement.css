@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&display=swap');
+
+.trainer-management-dark {
+  padding: 20px;
+  background-color: #ffffff; /* Dark background */
+  border-radius: 8px;
+  color: #060202; /* Light text color for readability */
+  font-family: 'Overpass';
+  height: 80vh;
+  width: 68vw;
+  
+}
+
+.trainer-management-dark h2 {
+  color: #0b0606; /* Red color for headings */
+  font-weight: bold;
+  text-align: center;
+}
+
+.trainer-management-dark .add-trainer-form {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.trainer-management-dark .add-trainer-form .form-group {
+  flex: 1;
+  min-width: 150px;
+}
+
+.trainer-management-dark .add-trainer-form input {
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #333;
+  background-color: #ffffff; /* Dark input background */
+  color: #0b0e0b; /* Neon green text color */
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.trainer-management-dark .add-trainer-form input:focus {
+  border-color: #ff4040; /* Red border on focus */
+}
+
+.trainer-management-dark .add-trainer-form button {
+  flex-shrink: 0;
+  background-color: #ff4040; /* Red background for button */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.trainer-management-dark .add-trainer-form button:hover {
+  background-color: #cc3333; /* Darker red on hover */
+  transform: scale(1.05);
+}
+
+.trainer-management-dark .trainer-table {
+  margin-top: 40px;
+  color: #eee; /* Light text color for table */
+  width: 80%;
+}
+
+.trainer-management-dark .trainer-table th, 
+.trainer-management-dark .trainer-table td {
+  border: 1px solid #333;
+  padding: 12px;
+  text-align: center;
+  vertical-align: middle;
+  background-color: #cac7c7be; /* Dark background for table cells */
+}
+
+.trainer-management-dark .trainer-table th {
+  background-color: #363636; /* Darker background for table header */
+  color: #ffffff; /* Red color for table header text */
+}
+
+.trainer-management-dark .trainer-table tbody tr:hover {
+  background-color: #333; /* Highlight row on hover */
+}
+
+.trainer-management-dark .trainer-table tbody tr td {
+  color: #060706; /* Neon green text for table data */
+}
+
+.trainer-management-dark .trainer-table tbody tr td button {
+  background-color: #ff4040;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.trainer-management-dark .trainer-table tbody tr td button:hover {
+  background-color: #cc3333;
+}
