@@ -10,6 +10,7 @@ const TrainerManagement = () => {
     specialization: '',
     email: '',
   });
+  const [editingTrainer, setEditingTrainer] = useState(null);
 
   useEffect(() => {
     // Fetch trainers from the backend when the component mounts
@@ -25,21 +26,38 @@ const TrainerManagement = () => {
     fetchTrainers();
   }, []);
 
-  const addTrainer = async () => {
+  const handleAddOrUpdateTrainer = async () => {
     if (validateFields(newTrainer)) {
       try {
-        // Send registration data to backend
-        const response = await axios.post('http://localhost:8080/api/trainers', newTrainer);
-        const addedTrainer = response.data; // Get the newly added trainer data from the response
-        // Update local state to reflect the new trainer
-        setTrainers([...trainers, addedTrainer]);
-        alert('Added successfully!');
+        if (editingTrainer) {
+          // Update trainer
+          const response = await axios.put(`http://localhost:8080/api/trainers/${editingTrainer.id}`, newTrainer);
+          setTrainers(trainers.map(trainer => trainer.id === editingTrainer.id ? response.data : trainer));
+          alert('Trainer updated successfully!');
+        } else {
+          // Add new trainer
+          const response = await axios.post('http://localhost:8080/api/trainers', newTrainer);
+          const addedTrainer = response.data;
+          setTrainers([...trainers, addedTrainer]);
+          alert('Trainer added successfully!');
+        }
+        // Reset form
         setNewTrainer({ name: '', specialization: '', email: '' });
+        setEditingTrainer(null);
       } catch (error) {
-        alert('Registration failed. Please try again.');
-        console.error('Error adding trainer:', error);
+        alert('Operation failed. Please try again.');
+        console.error('Error adding/updating trainer:', error);
       }
     }
+  };
+
+  const handleEditTrainer = (trainer) => {
+    setNewTrainer({
+      name: trainer.name,
+      specialization: trainer.specialization,
+      email: trainer.email,
+    });
+    setEditingTrainer(trainer);
   };
 
   const handleChange = (e) => {
@@ -62,22 +80,8 @@ const TrainerManagement = () => {
   };
 
   const isValidEmail = (email) => {
-    // Basic email validation pattern
     const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return pattern.test(email);
-  };
-
-  const deleteTrainer = async (trainerId) => {
-    try {
-      // Send a request to the backend to delete the trainer
-      await axios.delete(`http://localhost:8080/api/trainers/${trainerId}`);
-      // Remove the trainer from the local state
-      setTrainers(trainers.filter((trainer) => trainer.id !== trainerId));
-      alert('Trainer deleted successfully!');
-    } catch (error) {
-      alert('Failed to delete trainer. Please try again.');
-      console.error('Error deleting trainer:', error);
-    }
   };
 
   return (
@@ -114,8 +118,8 @@ const TrainerManagement = () => {
           />
         </Form.Group>
 
-        <Button variant="primary" onClick={addTrainer}>
-          Add Trainer
+        <Button variant="primary" onClick={handleAddOrUpdateTrainer}>
+          {editingTrainer ? 'Update Trainer' : 'Add Trainer'}
         </Button>
       </Form>
 
@@ -138,10 +142,10 @@ const TrainerManagement = () => {
               <td>{trainer.email}</td>
               <td>
                 <Button
-                  variant="danger"
-                  onClick={() => deleteTrainer(trainer.id)}
+                  variant="warning"
+                  onClick={() => handleEditTrainer(trainer)}
                 >
-                  Delete
+                  Edit
                 </Button>
               </td>
             </tr>

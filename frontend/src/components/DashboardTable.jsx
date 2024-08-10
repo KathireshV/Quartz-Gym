@@ -1,5 +1,5 @@
-import React from 'react';
-import './DashboardTable.css'
+import React, { useState, useEffect } from 'react';
+import './DashboardTable.css';
 import {
   Card,
   CardContent,
@@ -13,48 +13,49 @@ import {
   Typography,
   Paper,
 } from '@mui/material';
-import DashboardGraph from './DashboardGraph';
-
-const data = [
-  { id: 1, name: 'John Doe', age: 28, email: 'john@example.com' },
-  { id: 2, name: 'Jane Smith', age: 32, email: 'jane@example.com' },
-  { id: 3, name: 'Alice Johnson', age: 24, email: 'alice@example.com' },
-  { id: 4, name: 'Robert Brown', age: 45, email: 'robert@example.com' },
-  { id: 5, name: 'Emily Davis', age: 29, email: 'emily@example.com' },
-];
+import axios from 'axios';
 
 const DashboardTable = () => {
+  const [trainers, setTrainers] = useState([]);
+
+  useEffect(() => {
+    const fetchTrainers = async () => {
+      try {
+        const response = await axios.get('http://localhost:8080/api/trainers');
+        setTrainers(response.data);
+      } catch (error) {
+        console.error('Error fetching trainers:', error);
+      }
+    };
+
+    fetchTrainers();
+  }, []);
+
   return (
-    <Card  className='dash-table-card'>
-      <CardHeader title={<span className='table-title'>Admin Information</span>}  />
+    <Card className='dash-table-card'>
+      <CardHeader title={<span className='table-title'>Trainers Information</span>} />
       <CardContent>
-        <TableContainer component={Paper} style={{border:'1px solid aliceblue'}}>
+        <TableContainer component={Paper} style={{ border: '1px solid aliceblue' }}>
           <Table>
             <TableHead>
               <TableRow>
                 <TableCell>
-                  <p className='table-head'>
-                    Name
-                  </p>
+                  <p className='table-head'>Name</p>
                 </TableCell>
                 <TableCell>
-                  <span className='table-head'>
-                    Age
-                  </span>
+                  <span className='table-head'>Specialization</span>
                 </TableCell>
                 <TableCell>
-                  <p className='table-head'>
-                    Email
-                  </p>
+                  <p className='table-head'>Email</p>
                 </TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
-              {data.map((row) => (
-                <TableRow key={row.id}>
-                  <TableCell className="table-cell">{row.name}</TableCell>
-                  <TableCell className="table-cell">{row.age}</TableCell>
-                  <TableCell className="table-cell">{row.email}</TableCell>
+              {trainers.map((trainer) => (
+                <TableRow key={trainer.id}>
+                  <TableCell className="table-cell">{trainer.name}</TableCell>
+                  <TableCell className="table-cell">{trainer.specialization}</TableCell>
+                  <TableCell className="table-cell">{trainer.email}</TableCell>
                 </TableRow>
               ))}
             </TableBody>

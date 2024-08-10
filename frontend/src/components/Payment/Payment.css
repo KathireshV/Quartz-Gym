@@ -1,0 +1,25 @@
+.payment-container {
+    max-width: 400px;
+    margin: 132px auto;
+    background-color: #797ff7;
+    padding: 80px;
+    border-radius: 100px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Center the text and the button */
+  }
+  
+  .payment-button {
+    padding: 15px 30px; /* Increase padding for a larger button */
+    font-size: 38px;    /* Increase font size */
+    cursor: pointer;
+    background-color: #143c81d1; /* Button background color */
+    color: white;       /* Button text color */
+    border-radius: 40px;
+  }
+  
+  .payment-title {
+    text-align: center;
+    color: #333;
+    font-size: 50px;
+  }
+  

@@ -23,7 +23,7 @@ const DashTrainer = ({ onLogout }) => {
     <div className='dash-cont'>
       <div className='dash-left'>
         <div>
-        <FaUserCircle size={60} style={{marginTop:'-2%'}}/>
+        <FaUserCircle size={60} style={{marginTop:'-2%',cursor:'pointer'}} onClick={(()=> navigate('/dash'))}/>
         </div>
         <br />
         <div>
@@ -35,8 +35,8 @@ const DashTrainer = ({ onLogout }) => {
         <div>
           <ul className='dash-item' >
             <li ><Link to="/" style={{textDecoration:'none', color:'white'}}>Home</Link></li>
-            <li>Staff</li>
-            <li>Manage User</li>
+            <li>Schedule</li>
+            <li>Manage Trainers</li>
             <li>Settings</li>
             <li className='dash-log' onClick={handleLog}>
               <LogoutIcon className='logout-icon' /> Logout

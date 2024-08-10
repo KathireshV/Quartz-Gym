@@ -18,6 +18,10 @@ import FullBody from './components/Exercise/FullBody';
 import Beginner from './components/Exercise/Beginner';
 import MuscleBuilding from './components/Exercise/MuscleBuilding';
 import PaymentPage from './components/PaymentPage';
+import RazorPayment from './components/Payment/PaypalPayment';
+import UserDashboard from './components/UserDashboard/UserDashboard';
+import TrainingTracker from './components/TrainingTracker/ExerciseList';
+import ExerciseList from './components/TrainingTracker/ExerciseList';
 
 function App() {
   
@@ -52,8 +56,10 @@ function App() {
         <Route path="/full-body" element={<FullBody />} />
         <Route path="/beginner" element={<Beginner />} />
         <Route path="/muscle-building" element={<MuscleBuilding />} />
-        <Route path="/payment" element={<PaymentPage />} />
+        <Route path="/payment" element={<RazorPayment />} />
+        <Route path="/train-track" element={<ExerciseList />} />
         <Route path='/dash' element={<Dashboard onLogout={handleLogout} />} />
+        <Route path='/user-dash' element={<UserDashboard onLogout={handleLogout} />} />
       </Routes>
     </BrowserRouter>
     </Provider>

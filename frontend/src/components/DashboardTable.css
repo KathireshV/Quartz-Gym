@@ -5,7 +5,10 @@
     height:max-content;
     width:50%;
     margin-left: 6%;
-    
+    overflow-x: auto;
+}
+.table-container{
+    overflow-y: auto;
 }
 
 .table-title,.table-head{
