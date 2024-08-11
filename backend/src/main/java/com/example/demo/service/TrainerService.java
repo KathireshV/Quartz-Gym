@@ -37,6 +37,10 @@ public class TrainerService {
             trainerRepository.deleteById(trainer.getId());
         }
     }
+    
+    public long getTrainerCount() {
+        return trainerRepository.count();
+    }
 
     // Update an existing trainer
     public Optional<Trainer> updateTrainer(Long id, Trainer updatedTrainer) {

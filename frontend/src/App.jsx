@@ -10,7 +10,6 @@ import store from './components/store';
 import SubscriptionPage from './components/SubscriptionPage';
 import TrainerManagement from './components/TrainerManagement';
 import DashTrainer from './components/DashTrainer';
-import ExercisePlan from './components/Exercise/ExercisePlan';
 import FatLoss from './components/Exercise/FatLoss';
 import BackWorkout from './components/Exercise/BackWorkout';
 import HomeExercise from './components/Exercise/HomeExercise';
@@ -20,8 +19,7 @@ import MuscleBuilding from './components/Exercise/MuscleBuilding';
 import PaymentPage from './components/PaymentPage';
 import RazorPayment from './components/Payment/PaypalPayment';
 import UserDashboard from './components/UserDashboard/UserDashboard';
-import TrainingTracker from './components/TrainingTracker/ExerciseList';
-import ExerciseList from './components/TrainingTracker/ExerciseList';
+import ExerciseTracker from './components/TrainingTracker/ExerciseTracker';
 
 function App() {
   
@@ -57,7 +55,7 @@ function App() {
         <Route path="/beginner" element={<Beginner />} />
         <Route path="/muscle-building" element={<MuscleBuilding />} />
         <Route path="/payment" element={<RazorPayment />} />
-        <Route path="/train-track" element={<ExerciseList />} />
+        <Route path="/train-track" element={<ExerciseTracker onLogout={handleLogout}/>} />
         <Route path='/dash' element={<Dashboard onLogout={handleLogout} />} />
         <Route path='/user-dash' element={<UserDashboard onLogout={handleLogout} />} />
       </Routes>

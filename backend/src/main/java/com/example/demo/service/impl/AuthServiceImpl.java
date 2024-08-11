@@ -1,6 +1,7 @@
 package com.example.demo.service.impl;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -94,5 +95,53 @@ public class AuthServiceImpl implements AuthService {
                 .build();
         userRepository.save(user);
         return "Admin registered successfully.";
+    }
+    @Override
+    public User getUserById(Long id) {
+        return userRepository.findById(id).orElseThrow(() -> new RuntimeException("User not found"));
+    }
+
+    @Override
+    public User updateUser(Long id, User user) {
+        User existingUser = userRepository.findById(id).orElseThrow(() -> new RuntimeException("User not found"));
+        existingUser.setName(user.getName());
+        existingUser.setEmail(user.getEmail());
+        existingUser.setRole(user.getRole());
+        existingUser.setMembership(user.getMembership());
+        // Update other fields as needed
+        return userRepository.save(existingUser);
+    }
+
+    @Override
+    public void deleteUser(Long id) {
+        userRepository.deleteById(id);
+    }
+
+    @Override
+    public List<User> getAllUsers() {
+        return userRepository.findAll();
+    }
+    
+    @Override
+    public User getUserByEmail(String email)
+    {
+        return userRepository.findByEmail(email).orElseThrow(() -> new RuntimeException("User not found"));
+    }
+
+    @Override
+    public User updateUserByEmail(User user) {
+        // Fetch the existing user by email
+        User existingUser = userRepository.findByEmail(user.getEmail()).orElse(null);
+        
+        if (existingUser != null) {
+            // Update fields as needed
+            existingUser.setName(user.getName());
+            // Set other fields as necessary
+
+            return userRepository.save(existingUser);
+        } else {
+            // Handle user not found case
+            throw new RuntimeException("User not found with email: " + user.getEmail());
+        }
     }
 }

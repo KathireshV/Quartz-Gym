@@ -7,6 +7,7 @@ import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,6 +32,12 @@ public class TrainerController {
     @GetMapping
     public List<Trainer> getAllTrainers() {
         return trainerService.getAllTrainers();
+    }
+    
+    @GetMapping("/count")
+    public ResponseEntity<Long> getTrainerCount() {
+        long count = trainerService.getTrainerCount();
+        return new ResponseEntity<>(count, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")

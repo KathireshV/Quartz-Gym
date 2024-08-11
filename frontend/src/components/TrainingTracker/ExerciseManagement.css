@@ -1,0 +1,99 @@
+.exercise-management-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.exercise-management-title {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.exercise-management-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.exercise-management-form input,
+.exercise-management-form select {
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 100%;
+}
+
+.exercise-management-form button {
+    align-self: flex-end;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.exercise-management-form button:hover {
+    background-color: #0056b3;
+}
+
+.exercise-management-table {
+    margin-top: 30px;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.exercise-management-table th,
+.exercise-management-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.exercise-management-table th {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+}
+
+.exercise-management-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.exercise-management-table tbody tr:hover {
+    background-color: #e9ecef;
+}
+
+.exercise-management-table button {
+    padding: 5px 10px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.exercise-management-table button.warning {
+    background-color: #ffc107;
+    color: black;
+}
+
+.exercise-management-table button.warning:hover {
+    background-color: #e0a800;
+}
+
+.exercise-management-form select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: url('data:image/svg+xml;utf8,<svg fill="%23007bff" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat right 10px center;
+    background-color: white;
+    background-size: 12px;
+}

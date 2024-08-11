@@ -9,55 +9,28 @@ import { useSelector } from 'react-redux';
 
 const UserDashboard = ({ onLogout }) => {
   const [profile, setProfile] = useState({});
-  const [progress, setProgress] = useState({});
-  const [editingProfile, setEditingProfile] = useState(false);
-  const [updatedProfile, setUpdatedProfile] = useState({});
   const [weight, setWeight] = useState('');
   const [height, setHeight] = useState('');
   const [bmiResult, setBmiResult] = useState(null);
   const navigate = useNavigate();
-  const userId = useSelector((state) => state.userId);
+  const email = useSelector((state) => state.name); // This is the user's email
 
   useEffect(() => {
-    // Fetch user profile and progress from the backend
-    const fetchData = async () => {
+    const fetchUserDetails = async () => {
       try {
-        const profileResponse = await axios.get(`http://localhost:8080/api/users/${userId}`);
-        setProfile(profileResponse.data);
-        setUpdatedProfile(profileResponse.data);
-
-        const progressResponse = await axios.get(`http://localhost:8080/api/users/${userId}/progress`);
-        setProgress(progressResponse.data);
+        console.log(`Fetching details for user with email: ${email}`);
+        const response = await axios.get(`http://localhost:8080/api/auth/users/search?email=${email}`);
+        console.log('Response data:', response.data);
+        setProfile(response.data); // Store the user details, including membership info
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error('Error fetching user details:', error);
       }
     };
 
-    fetchData();
-  }, [userId]);
-
-  const handleEditProfile = () => {
-    setEditingProfile(true);
-  };
-
-  const handleSaveProfile = async () => {
-    try {
-      await axios.put(`http://localhost:8080/api/users/${userId}`, updatedProfile);
-      setProfile(updatedProfile);
-      setEditingProfile(false);
-      alert('Profile updated successfully!');
-    } catch (error) {
-      alert('Failed to update profile. Please try again.');
-      console.error('Error updating profile:', error);
+    if (email) {
+      fetchUserDetails();
     }
-  };
-
-  const handleChange = (e) => {
-    setUpdatedProfile({
-      ...updatedProfile,
-      [e.target.name]: e.target.value,
-    });
-  };
+  }, [email]);
 
   const handleLogout = () => {
     onLogout();
@@ -77,13 +50,13 @@ const UserDashboard = ({ onLogout }) => {
   return (
     <div className='user-dash-container'>
       <div className='user-dash-sidebar'>
-        <FaUserCircle size={60} />
+        <FaUserCircle size={60} style={{}}/>
         <div className='user-dash-header'>
-          {profile.name}'s Dashboard
+          {profile.name}'s <br /><br /> Dashboard
         </div>
         <ul className='user-dash-nav'>
           <li><a href="#profile" className='user-dash-nav-item'>Profile</a></li>
-          <li><a href="#progress" className='user-dash-nav-item'>Progress</a></li>
+          <li><a className='user-dash-nav-item' onClick={() => navigate('/train-track')}>Progress</a></li>
           <li><a href="#settings" className='user-dash-nav-item'>Settings</a></li>
           <li className='user-dash-logout' onClick={handleLogout}>
             <LogoutIcon className='user-dash-logout-icon' /> Logout
@@ -93,60 +66,22 @@ const UserDashboard = ({ onLogout }) => {
       <div className='user-dash-main'>
         <div className='user-dash-content-top'>
           <h2 className='user-dash-content-title'>Profile Information</h2>
-          {editingProfile ? (
-            <Form className='user-dash-form'>
-              <Form.Group className='user-dash-form-group'>
-                <Form.Control
-                  type='text'
-                  name='name'
-                  value={updatedProfile.name || ''}
-                  onChange={handleChange}
-                  placeholder='Enter your name'
-                  className='user-dash-form-control'
-                />
-              </Form.Group>
-              <Form.Group className='user-dash-form-group'>
-                <Form.Control
-                  type='email'
-                  name='email'
-                  value={updatedProfile.email || ''}
-                  onChange={handleChange}
-                  placeholder='Enter your email'
-                  className='user-dash-form-control'
-                />
-              </Form.Group>
-              <Button 
-                variant='primary'
-                onClick={handleSaveProfile}
-                className='user-dash-form-submit'
-              >
-                Save Changes
-              </Button>
-            </Form>
-          ) : (
-            <div>
-              <p><strong>Name:</strong> {profile.name}</p>
-              <p><strong>Email:</strong> {profile.email}</p>
-              <Button 
-                variant='primary' 
-                onClick={handleEditProfile}
-                className='user-dash-form-submit'
-              >
-                Edit Profile
-              </Button>
+          <div>
+            <p><strong>Name:</strong> {profile.name}</p>
+            <p><strong>Email:</strong> {profile.email}</p>
+            <p><strong>Membership:</strong> {profile.memebership || 'NIL'}</p>
+          </div>
+          {profile.membership && (
+            <div className='user-dash-membership-details'>
+              <h3 className='user-dash-membership-title'>Membership Details</h3>
+              <p><strong>Plan:</strong> {profile.membership.plan}</p>
+              <p><strong>Start Date:</strong> {new Date(profile.membership.startDate).toLocaleDateString()}</p>
+              <p><strong>End Date:</strong> {new Date(profile.membership.endDate).toLocaleDateString()}</p>
+              <p><strong>Status:</strong> {profile.membership.status}</p>
             </div>
           )}
         </div>
 
-        {/* <div className='user-dash-progress-card'>
-          <h3>Gym Progress</h3>
-          <div className='user-dash-progress-details'>
-            <p><strong>Last Workout:</strong> {progress.lastWorkout}</p>
-            <p><strong>Weekly Goals:</strong> {progress.weeklyGoals}</p>
-            <p><strong>Total Workouts:</strong> {progress.totalWorkouts}</p>
-            <p><strong>Progress:</strong> {progress.progressPercentage}%</p>
-          </div>
-        </div> */}
         <div className='user-dash-bmi-card'>
           <h3 className='user-dash-bmi-title'>BMI Calculator</h3>
           <Form className='user-dash-bmi-form'>
