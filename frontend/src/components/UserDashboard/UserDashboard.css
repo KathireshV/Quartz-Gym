@@ -1,194 +1,127 @@
-/* General Container */
 .user-dash-container {
     display: flex;
     height: 100vh;
-    background: linear-gradient(135deg, #e0f7fa 0%, #b9fbc0 100%);
-    color: #333;
-}
-
-/* Left Sidebar */
-.user-dash-sidebar {
-    flex: 0.25;
-    background-color: #263238;
-    color: #eceff1;
-    padding: 20px;
+    background-color: #f4f4f9;
+  }
+  
+  .user-dash-sidebar {
+    width: 250px;
+    background-color: #333;
+    color: #fff;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
     text-align: center;
-}
-
-.user-dash-header {
-    font-size: 1.5em;
+  }
+  
+  .user-dash-header {
+    font-size: 24px;
     font-weight: bold;
-    margin-bottom: 20px;
-    color: #eceff1;
-    
-}
-
-.user-dash-nav {
-    list-style: none;
+    margin-top: 20px;
+    text-align: center;
+    margin-left: 100px;
+  }
+  
+  .user-dash-nav {
+    list-style-type: none;
     padding: 0;
-    margin: 0;
-}
-
-.user-dash-nav-item {
-    padding: 15px 20px;
-    font-size: 1.1em;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    color: #eceff1;
+    width: 100%;
+    margin-top: 30px;
+    flex-grow: 1;
+  }
+  
+  .user-dash-nav-item {
+    color: #fff;
     text-decoration: none;
     display: block;
-}
-
-.user-dash-nav-item:hover {
-    background-color: #37474f;
+    padding: 10px 20px;
+    margin: 10px 0;
+    background-color: #444;
     border-radius: 5px;
-}
-
-.user-dash-logout {
+    text-align: center;
+    transition: background-color 0.3s ease;
+  }
+  
+  .user-dash-nav-item:hover {
+    background-color: #555;
+  }
+  
+  .user-dash-logout {
     margin-top: auto;
-    padding: 15px 20px;
+    background-color: #e74c3c;
+    border-radius: 5px;
+    padding: 10px 20px;
+    text-align: center;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.3s ease;
-}
-
-.user-dash-logout-icon {
-    font-size: 1.2em;
-    margin-right: 10px;
-}
-
-/* Right Content Area */
-.user-dash-main {
-    flex: 0.75;
-    background-color: #ffffff;
+  }
+  
+  .user-dash-logout-icon {
+    vertical-align: middle;
+    margin-right: 5px;
+  }
+  
+  .user-dash-main {
+    flex-grow: 1;
+    padding: 30px;
+  }
+  
+  .user-dash-content-top {
+    margin-bottom: 30px;
+  }
+  
+  .user-dash-content-title {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  
+  .user-dash-membership-details {
+    margin-top: 20px;
     padding: 20px;
-    overflow-y: auto;
-}
-
-.user-dash-content-top {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-bottom: 20px;
-}
-
-.user-dash-content-title {
-    font-size: 2em;
-    margin-bottom: 20px;
-    color: #333;
-}
-
-.user-dash-progress-card {
-    background: #f5f5f5;
-    border: 1px solid #ddd;
+    background-color: #fff;
     border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .user-dash-membership-title {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+  
+  .user-dash-bmi-card {
+    background-color: #fff;
     padding: 20px;
-    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .user-dash-bmi-title {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+  
+  .user-dash-bmi-form-group {
+    margin-bottom: 15px;
+  }
+  
+  .user-dash-bmi-form-control {
+    border-radius: 5px;
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+  
+  .user-dash-bmi-form-submit {
     width: 100%;
-}
-
-.user-dash-progress-card h3 {
-    margin-bottom: 15px;
-}
-
-.user-dash-progress-details {
-    font-size: 1em;
-    margin-bottom: 10px;
-}
-
-.user-dash-form {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.user-dash-form-group {
-    margin-bottom: 15px;
-}
-
-.user-dash-form-control {
-    border-radius: 5px;
-    border: 1px solid #ccc;
     padding: 10px;
-    font-size: 1em;
-}
-
-.user-dash-form-submit {
-    background-color: #00796b;
-    border-color: #00796b;
     border-radius: 5px;
-    font-size: 1em;
-    padding: 10px 20px;
-    transition: background-color 0.3s ease;
-}
-
-.user-dash-form-submit:hover {
-    background-color: #004d40;
-}
-/* BMI Calculator Styles */
-.user-dash-bmi-card {
-    background: #f5f5f5;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 20px;
+  }
+  
+  .user-dash-bmi-result {
     margin-top: 20px;
-    width: 95%;
-}
-
-.user-dash-bmi-title {
-    font-size: 1.5em;
-    margin-bottom: 15px;
-}
-
-.user-dash-bmi-form-group {
-    margin-bottom: 15px;
-}
-
-.user-dash-bmi-form-control {
+    padding: 15px;
+    background-color: #f0f0f0;
     border-radius: 5px;
-    border: 1px solid #ccc;
-    padding: 10px;
-    font-size: 1em;
-}
-
-.user-dash-bmi-form-submit {
-    background-color: #00796b;
-    border-color: #00796b;
-    border-radius: 5px;
-    font-size: 1em;
-    padding: 10px 20px;
-    transition: background-color 0.3s ease;
-}
-
-.user-dash-bmi-form-submit:hover {
-    background-color: #004d40;
-}
-
-.user-dash-bmi-result {
-    margin-top: 20px;
-    font-size: 1.2em;
-}
-
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .user-dash-container {
-        flex-direction: column;
-    }
-
-    .user-dash-sidebar {
-        flex: none;
-        width: 100%;
-        padding: 10px;
-    }
-
-    .user-dash-main {
-        flex: none;
-        width: 100%;
-        padding: 10px;
-    }
-}
+    text-align: center;
+  }
+  

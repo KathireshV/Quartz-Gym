@@ -50,15 +50,16 @@ const UserDashboard = ({ onLogout }) => {
   return (
     <div className='user-dash-container'>
       <div className='user-dash-sidebar'>
-        <FaUserCircle size={60} style={{}}/>
+        <FaUserCircle size={100} style={{cursor:'pointer',marginLeft:'130px'}} onClick={()=>navigate('/user-dash')}/>
+          {/* <br /> */}
         <div className='user-dash-header'>
-          {profile.name}'s <br /><br /> Dashboard
+          {profile.name}'s <br /> Dashboard
         </div>
         <ul className='user-dash-nav'>
           <li><a href="#profile" className='user-dash-nav-item'>Profile</a></li>
           <li><a className='user-dash-nav-item' onClick={() => navigate('/train-track')}>Progress</a></li>
           <li><a href="#settings" className='user-dash-nav-item'>Settings</a></li>
-          <li className='user-dash-logout' onClick={handleLogout}>
+          <li className='user-dash-logout' onClick={handleLogout} style={{marginTop:'65%'}}>
             <LogoutIcon className='user-dash-logout-icon' /> Logout
           </li>
         </ul>
@@ -105,6 +106,7 @@ const UserDashboard = ({ onLogout }) => {
             </Form.Group>
             <Button 
               variant='primary'
+              style={{color:'white'}}
               onClick={calculateBMI}
               className='user-dash-bmi-form-submit'
             >

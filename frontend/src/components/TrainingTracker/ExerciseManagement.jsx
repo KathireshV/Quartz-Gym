@@ -140,13 +140,15 @@ const ExerciseManagement = () => {
               <td>
                 <Button
                   variant="warning"
+                  style={{backgroundColor:'#0EB61E'}}
                   onClick={() => handleEditExercise(exercise)}
                   className="mr-2"
                 >
                   Edit
-                </Button>
+                </Button> &nbsp;
                 <Button
                   variant="danger"
+                  style={{backgroundColor:'#e74c3c'}}
                   onClick={() => handleDeleteExercise(exercise.id)}
                 >
                   Delete
