@@ -7,7 +7,7 @@ function Hero() {
       <div className="hero-content">
         <h1 className="hero-title">Unleash Your Potential</h1>
         <p className="hero-subtitle">Join us today and transform your body!</p>
-        <a href="/payment" className="hero-button" >Get Started</a>
+        <a href="/" className="hero-button" >Get Started</a>
       </div>
     </div>
   );

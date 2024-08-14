@@ -13,30 +13,30 @@ const Register = () => {
     const handleRegister = async (e) => {
         e.preventDefault();
 
-        // Basic validation checks
+        
         if (!username || !email || !password || !confirmPassword) {
             alert('Please fill out all fields.');
             return;
         }
 
-        b 
-        // Validate email format
+        
+    
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
             alert('Please enter a valid email address.');
             return;
         }
 
-        // Validate password match
+        
         if (password !== confirmPassword) {
             alert('Passwords do not match.');
             return;
         }
 
         try {
-            // Send registration data to backend
+            
             await axios.post('http://localhost:8080/api/auth/register', {
-                username,
+                name:username,
                 email,
                 password,
             });

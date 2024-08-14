@@ -39,7 +39,7 @@ const RazorPayment = () => {
         key: 'rzp_test_GcZZFDPP0jHtC4', 
         amount: plan === 'Basic' ? 39999 : plan === 'Standard' ? 63999 : 155999, 
         currency: 'INR',
-        name: 'Play+',
+        name: 'Quartz+',
         description: `${plan} Plan Payment`,
         handler: function (response) {
           console.log(`Payment ID: ${response.razorpay_payment_id}`);
