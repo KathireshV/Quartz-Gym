@@ -4,6 +4,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
+import img1 from '../assets/fat-loss-1.jpg';
 import './Cards.css';
 import { useNavigate } from 'react-router-dom';
 
@@ -21,7 +22,7 @@ function Cards() {
         <CardMedia className='card-img'
           component="img"
           height="140"
-          image="src\assets\fat-loss-1.jpg" 
+          image={img1} 
           alt="green iguana"
           />
         <CardContent>
