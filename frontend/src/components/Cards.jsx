@@ -5,6 +5,11 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import img1 from '../assets/fat-loss-1.jpg';
+import img2 from '../assets/backworkouts.jpg';
+import img3 from '../assets/athome.jpg';
+import img4 from '../assets/fullbody.jpg';
+import img5 from '../assets/beginner_0.jpg';
+import img6 from '../assets/musclebuilding.jpg';
 import './Cards.css';
 import { useNavigate } from 'react-router-dom';
 
@@ -42,7 +47,7 @@ function Cards() {
         <CardMedia className='card-img'
           component="img"
           height="140"
-          image="src\assets\backworkouts.jpg"
+          image={img2}
           alt="green iguana"
           />
         <CardContent>
@@ -62,7 +67,7 @@ function Cards() {
         <CardMedia className='card-img'
           component="img"
           height="140"
-          image="src\assets\athome.jpg"
+          image={img3}
           alt="green iguana"
           />
         <CardContent>
@@ -82,7 +87,7 @@ function Cards() {
         <CardMedia className='card-img'
           component="img"
           height="140"
-          image="src\assets\fullbody.jpg"
+          image={img4}
           alt="green iguana"
           />
         <CardContent>
@@ -102,7 +107,7 @@ function Cards() {
         <CardMedia className='card-img'
           component="img"
           height="140"
-          image="src\assets\beginner_0.jpg"
+          image={img5}
           alt="green iguana"
           />
         <CardContent>
@@ -122,7 +127,7 @@ function Cards() {
         <CardMedia className='card-img'
           component="img"
           height="140"
-          image="src\assets\musclebuilding.jpg"
+          image={img6}
           alt="green iguana"
           />
         <CardContent>
