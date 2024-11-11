@@ -46,7 +46,7 @@ function App() {
           />
         <Route path='/register' element={<Register />} />
         <Route path='/subscribe' element={<SubscriptionPage />} />
-        <Route path="/manage-trainer" element={<DashTrainer />} />
+        <Route path="/manage-trainer" element={<DashTrainer onLogout={handleLogout}/>} />
         {/* <Route path="/exercise1" element={<ExercisePlan />} /> */}
         <Route path="/fat-loss" element={<FatLoss />} />
         <Route path="/back-workout" element={<BackWorkout />} />
